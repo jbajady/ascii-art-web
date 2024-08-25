@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ascii-art-web</title>
+</head>
+<body>
+   <center style="margin-top: 5%;">
+    <h1>ascii-art</h1>
+    <form action="/AsciiArt" method="post">
+    <div >
+        <!-- <input type="text" name="text" > -->
+        <textarea style="resize: none;" name="text"  placeholder="wirte ascii-art" style="width: 500px; height: 250px;" maxlength="10000"></textarea>
+    </div>
+    <div name="banner">
+        <input type="radio" name="slection" value="shadow" checked>
+        <label for="shadow">shadow</label>
+        <input type="radio" name="slection" value="standard" checked>
+      <label for="standard">standard</label>
+        <input type="radio" name="slection" value="thinkertoy">
+    <label for="thinktory">thinktory</label>
+    </div>
+    <div>
+        <input type="submit" value="submit">
+    </div>
+</form>
+<!-- <pre>{{.}}</pre> -->
+   </center>
+</body>
+</html>
