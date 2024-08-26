@@ -14,13 +14,13 @@ func AsciiArt(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	input := r.FormValue("text")
-	if !(IsEmpty(input)) || !(Is_print(input)) || (len(input) > 1000) {
+	if !(IsEmpty(input)) || (Is_print(input)) || (len(input) > 1000) {
 		ErrorHandl(w, http.StatusBadRequest)
 		return
 	}
 	banner := r.FormValue("slection")
 	if !(banner == "shadow" || banner == "standard" || banner == "thinkertoy") {
-		ErrorHandl(w, http.StatusInternalServerError)
+		ErrorHandl(w, http.StatusBadRequest)
 		return
 	}
 
