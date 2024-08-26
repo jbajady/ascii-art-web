@@ -5,15 +5,18 @@ import (
 )
 
 // ascii-art-fs
-func Ascii_art_fs(inputtext string, banner string) string {
-	var word string
+func Ascii_art_fs(inputtext string, banner string) (string, error) {
+	var resulte string
 
 	inputsep := strings.Split(inputtext, "\r\n")
 	if strings.ReplaceAll(inputtext, "\r\n", "") == "" && len(inputtext) > 1 {
 		inputsep = inputsep[1:]
 	}
-	contentfile := Readfile(banner)
+	contentfile, err := Readfile(banner)
+	if err != nil {
+		return resulte, err
+	}
 	matrix := Split((string(contentfile)), banner)
-	word = Print(inputsep, matrix)
-	return word
+	resulte = Print(inputsep, matrix)
+	return resulte, err
 }

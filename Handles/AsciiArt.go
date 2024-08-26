@@ -27,10 +27,16 @@ func AsciiArt(w http.ResponseWriter, r *http.Request) {
 	templat, err := template.ParseFiles("templtes/resulte.html")
 	if err != nil {
 		ErrorHandl(w, http.StatusNotFound)
+		return
 	}
-
-	err = templat.Execute(w, Func.Ascii_art_fs(input, banner))
+	data, errr := Func.Ascii_art_fs(input, banner)
+	if errr != nil {
+		ErrorHandl(w, http.StatusInternalServerError)
+		return
+	}
+	err = templat.Execute(w, data)
 	if err != nil {
 		ErrorHandl(w, http.StatusNotFound)
+		return
 	}
 }

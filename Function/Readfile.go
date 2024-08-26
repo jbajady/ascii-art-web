@@ -5,16 +5,9 @@ import (
 )
 
 // read a banner file
-func Readfile(banner string) []byte {
+func Readfile(banner string) ([]byte, error) {
 	var contentfile []byte
-	var err error
-
 	readbanner := banner + ".txt"
-
-	contentfile, err = os.ReadFile(readbanner)
-	if err != nil || len(contentfile) != 6623 {
-		Curl(readbanner)
-		contentfile, _ = os.ReadFile(readbanner)
-	}
-	return contentfile
+	contentfile, err := os.ReadFile(readbanner)
+	return contentfile, err
 }

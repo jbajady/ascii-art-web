@@ -2,20 +2,20 @@ package Func
 
 // print the sscii-art
 func Print(inputtext []string, matrix [][]string) string {
-	word := ""
+	resulte := ""
 	for j := 0; j < len(inputtext); j++ {
 		if inputtext[j] == "" { // replece any umpty string with newline
-			word += "\n"
+			resulte += "\n"
 			continue
 
 		}
 		for i := 0; i < 8; i++ { // print 8 line
 			for k := 0; k < len(inputtext[j]); k++ {
-				word += (matrix[int(inputtext[j][k]-32)][i]) // print the asci-art
+				resulte += (matrix[int(inputtext[j][k]-32)][i]) // print the asci-art
 			}
-			word += "\n"
+			resulte += "\n"
 		}
 
 	}
-	return word
+	return resulte
 }
