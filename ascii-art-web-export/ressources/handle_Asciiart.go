@@ -26,7 +26,7 @@ func HandleAsciiArt(w http.ResponseWriter, r *http.Request) {
 		HandleError(w, http.StatusInternalServerError)
 		return
 	}
-	if text == "" {
+	if text == "" || len(text) > 900 {
 		HandleError(w, http.StatusBadRequest)
 		return
 	}
