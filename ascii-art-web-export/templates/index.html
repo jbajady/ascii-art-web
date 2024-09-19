@@ -14,7 +14,8 @@
         <div id="navigation-container">
             <a href="https://zone01oujda.ma/" target="_blank"><img src="/static/public/logo.png" alt="logo"></a>
             <ul>
-                <li><a class="links" href="https://github.com/A-fethi/ascii-art-web/tree/main" target="_blank">Github-Repo</a>
+                <li><a class="links" href="https://github.com/A-fethi/ascii-art-web/tree/main"
+                        target="_blank">Github-Repo</a>
                 </li>
                 <li><a class="links" href="/authors">Authors</a></li>
                 <li><a class="links" href="/about">About</a></li>
@@ -28,7 +29,7 @@
         </div>
         <div class="form">
             <form action="/ascii-art" method="post">
-                <textarea name="text" maxlength="1000" required></textarea>
+                <textarea name="text" maxlength="900" required></textarea>
                 <p>Please select your favorite BANNER File:</p>
                 <input type="radio" id="standard" value="standard" name="banner" checked>
                 <label for="standard">Standard</label>
@@ -41,23 +42,27 @@
             </form>
         </div>
     </div>
-    
+
     <div class="output">
         <pre>{{.}}</pre>
-    </div>   
-    <form class="download" action="/download" method="post">
-    {{if .}}
-    <select data-placeholder="Begin typing a name to filter..." multiple class="chosen-select" name="test">
-        <option value=".txt">.txt</option>
-        <option value=".html">.html</option>
-        <option value=".xml">.xml</option>
-        <option value=".yml">.yml</option>
-    </select>
-      <!-- <input type="submit"> -->
+    </div>
+    <div class="form-container">
+        {{if .}}
+        <div><p>Choose your prefered extension to download</p></div>
+        <div>
+            <form class="download" action="/download" method="post">
+                <select class="chosen-select" name="extention">
+                    <option value=".txt">.txt</option>
+                    <option value=".html">.html</option>
+                    <option value=".doc">.doc</option>
+                </select>
+        </div>
+        <div>
             <button class="download" type="submit" name="Download" value={{.}}>Download ASCII Art</button>
-        
-    {{end}}
-</form>
+        </div>
+        </form>
+        {{end}}
+    </div>
 </body>
 
 </html>
